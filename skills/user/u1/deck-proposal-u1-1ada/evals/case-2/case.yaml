@@ -1,0 +1,26 @@
+expect:
+  outline:
+  - 회사 소개
+  - 고객 과제
+  - 서비스 제안
+  - 레퍼런스
+  - 일정·비용
+  fixed:
+  - 코쇠금융IT는 자본시장 인프라를 함께 만들어 온 금융 IT 전문 기업임(가상)
+  - 증권·자산운용·저축은행 고객 40여 곳 운영(가상)
+  - A증권 원장 클라우드 전환 완료(가상)
+  - 본 자료의 수치와 일정은 협의 결과에 따라 달라질 수 있음
+  - 제안 유효기간은 제출일로부터 30일임
+score:
+  with:
+    struct: 1.0
+    fixed: true
+    lost: []
+    new: []
+    grammar: []
+  without:
+    struct: 0.0
+    fixed: false
+    lost: []
+    new: []
+    grammar: []
