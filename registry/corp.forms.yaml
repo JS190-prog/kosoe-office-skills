@@ -25,7 +25,7 @@ forms:
   - {id: deck-proposal, name: 제안서 덱 (Koscom Chevron), fmt: ppt, use: 제안, corp: koscom-doc-pack,
      outline: [제안 요약, 고객 과제, 해결안, 구축 일정, 기대 효과], desc: 대외 제안 발표용 PPT}
   - {id: deck-exec, name: 임원 보고 덱, fmt: ppt, use: 보고, corp: koscom-doc-pack,
-     outline: [핵심 요약, 현황, 쟁점, 결정 요청], desc: 결론 먼저, 5장 이내 임원 보고}
+     outline: [핵심 요약, 현황, 쟁점, 결정 요청], desc: "결론 먼저, 5장 이내 임원 보고"}
   - {id: web-brief, name: 브리핑 웹슬라이드, fmt: web, use: 보고, corp: koscom-webslide, grade: n,
      outline: [핵심 메시지, 숫자로 보기, 다음 단계], desc: 링크로 공유하는 움직이는 브리핑}
   - {id: web-edu, name: 교육 웹슬라이드, fmt: web, use: 교육, corp: koscom-webslide, grade: n,
