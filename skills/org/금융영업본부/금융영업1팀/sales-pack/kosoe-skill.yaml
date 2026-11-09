@@ -3,7 +3,7 @@ name: 영업 팩 (금융영업1팀)
 scope: org
 org: 금융영업본부/금융영업1팀
 owner: 김철수
-version: 1.7.1
+version: 1.8.0
 grade: i
 extends:
 - skill:sales-common
@@ -52,7 +52,7 @@ forms:
 blocks:
 - id: service-intro
   heading: 서비스 제안
-  text: 코쇠 원장 클라우드는 원장·시세·주문 시스템을 하나의 클라우드로 운영하는 서비스임(가상)
+  text: 코쇠 원장 클라우드는 원장·시세·주문을 하나의 클라우드로 운영하고 장애 대응을 30분 안에 마치는 서비스임(가상)
 glossary:
   terms:
     PoC: 개념 검증(시범 구축)
