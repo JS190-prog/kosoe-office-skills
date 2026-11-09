@@ -1,0 +1,19 @@
+# 전사 공용 스킬 잠금 파일 — 코쇠오피스가 문서를 만들 때 쓰는 전사 스킬의 정확한 버전
+# SHA를 바꾸는 PR = 전사 스킬 갱신 (전사 관리자 승인 후 다음 문서부터 반영)
+corp_skills:
+  koscom-doc-pack:
+    repo: humanist96/koscom-doc-pack
+    sha: c94a6de2873f2dcb1e8ee76fe1ba80d55d28d0f5
+    expose: [router, ppt-master, ppt-template-fill]
+  koscom-hwp-report:
+    repo: humanist96/koscom_hangul_skill
+    sha: 19bd93b30619d28c0946ebfcd2e50b032d752a29
+  koscom-webslide:
+    repo: humanist96/koscom_webslide
+    sha: 00557cabbfb7ed0b7cfa31f2bb6cc791cd6892f6
+    path: skills/koscom-webslide
+  kosoe-illustrations:
+    repo: humanist96/koscom-kosoe-illustrations
+    sha: 7026e62deea48ce0f757e4c16bb1b24e7031c9a2
+    path: koscom-kosoe-illustrations
+locked_keys: [brand.ci_colors, brand.fonts, brand.logo, doc.grade_label, hwp.base_template]
