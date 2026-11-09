@@ -1,0 +1,38 @@
+id: planning-pack
+name: 기획 팩 (경영기획팀)
+scope: org
+org: 경영기획본부/경영기획팀
+share: corp
+owner: 박지원
+version: 1.2.0
+grade: i
+extends:
+  - corp:koscom-hwp-report
+  - corp:koscom-doc-pack#ppt-master
+  - corp:kosoe-illustrations
+forms:
+  - id: summary-report
+    name: 기획 요약보고 (경영기획팀 기준)
+    fmt: hwp
+    use: 보고
+    preset: plan-report
+    outline: [추진 배경, 추진 내용, 추진 일정, 기대 효과, 향후 계획]
+    desc: 경영기획팀이 정한 전사 요약보고 기준 — 결론 먼저, 기대 효과는 근거 성격 표시
+    blocks: [effect-note]
+blocks:
+  - id: effect-note
+    heading: 기대 효과
+    text: 효과 수치는 실측·외부 자료·가정을 구분하여 표기함
+glossary:
+  terms:
+    KPI: 핵심 성과 지표
+    TF: 임시 전담 조직
+  banned: [획기적, 혁신적인]
+checks:
+  required: [효과 수치는 실측·외부 자료·가정을 구분하여 표기함]
+  banned: []
+rules:
+  - 첫 장 첫 항목에 결론(무엇을 왜 하는지)을 한 줄로 쓴다
+  - 기대 효과의 수치마다 실측·외부 자료·가정 중 하나를 괄호로 붙인다
+approval_line: [담당, 팀장, 부서장]
+illust_topics: [기획, 보고]

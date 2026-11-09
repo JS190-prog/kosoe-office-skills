@@ -1,0 +1,32 @@
+# 전사 공통 양식 — 전사 공용 스킬이 제공하는 문서 종류(코쇠오피스 갤러리의 '전사' 카드)
+# 한글: koscom-hwp-report 프리셋(구성·작성 규칙) · PPT: ppt-master koscom-chevron 덱 · 웹: koscom-webslide
+# 변경은 PR → 전사 관리자 승인
+forms:
+  - {id: result-report, name: 결과보고, fmt: hwp, use: 보고, preset: result-report, corp: koscom-hwp-report,
+     outline: [개요, 주요 내용, 성과, 향후 계획], desc: 사업·행사·과제를 마친 뒤 결과를 한 장으로}
+  - {id: plan-report, name: 계획보고, fmt: hwp, use: 보고, preset: plan-report, corp: koscom-hwp-report,
+     outline: [추진 배경, 추진 내용, 추진 일정, 기대 효과], desc: 새 일을 시작하기 전 계획 보고}
+  - {id: review-report, name: 검토보고, fmt: hwp, use: 보고, preset: review-report, corp: koscom-hwp-report,
+     outline: [검토 배경, 현황, 검토 의견, 건의 사항], desc: 대안을 비교하고 의견을 낼 때}
+  - {id: issue-report, name: 이슈·장애 보고, fmt: hwp, use: 운영, preset: issue-report, corp: koscom-hwp-report, grade: c,
+     outline: [발생 개요, 경과, 원인, 조치 결과, 재발 방지 대책], desc: 장애·민원·사고의 발생부터 재발 방지까지}
+  - {id: meeting-report, name: 회의 결과 보고, fmt: hwp, use: 보고, preset: meeting-report, corp: koscom-hwp-report,
+     outline: [회의 개요, 주요 논의, 결정 사항, 후속 조치], desc: 회의 뒤 결정과 할 일 정리}
+  - {id: trip-report, name: 출장 결과 보고, fmt: hwp, use: 보고, preset: trip-report, corp: koscom-hwp-report,
+     outline: [출장 개요, 주요 활동, 시사점, 후속 조치], desc: 출장 일정과 시사점 정리}
+  - {id: visit-report, name: 고객 방문 결과, fmt: hwp, use: 보고, preset: visit-report, corp: koscom-hwp-report,
+     outline: [방문 개요, 주요 논의, 고객 요청 사항, 후속 조치], desc: 고객사 방문·미팅 결과 보고}
+  - {id: event-plan, name: 행사 계획 보고, fmt: hwp, use: 보고, preset: event-plan, corp: koscom-hwp-report,
+     outline: [행사 개요, 세부 일정, 역할 분담, 소요 예산, 준비 일정], desc: 행사 준비 계획}
+  - {id: weekly-report, name: 주간 업무 보고, fmt: hwp, use: 보고, preset: weekly-report, corp: koscom-hwp-report,
+     outline: [금주 실적, 차주 계획, 이슈 및 건의], desc: 표 중심 1쪽 주간 보고}
+  - {id: education-plan, name: 교육 기획안, fmt: hwp, use: 교육, preset: education-plan, corp: koscom-hwp-report, grade: n,
+     outline: [교육 개요, 교육 내용, 운영 계획, 소요 예산], desc: 교육 과정 기획}
+  - {id: deck-proposal, name: 제안서 덱 (Koscom Chevron), fmt: ppt, use: 제안, corp: koscom-doc-pack,
+     outline: [제안 요약, 고객 과제, 해결안, 구축 일정, 기대 효과], desc: 대외 제안 발표용 PPT}
+  - {id: deck-exec, name: 임원 보고 덱, fmt: ppt, use: 보고, corp: koscom-doc-pack,
+     outline: [핵심 요약, 현황, 쟁점, 결정 요청], desc: 결론 먼저, 5장 이내 임원 보고}
+  - {id: web-brief, name: 브리핑 웹슬라이드, fmt: web, use: 보고, corp: koscom-webslide, grade: n,
+     outline: [핵심 메시지, 숫자로 보기, 다음 단계], desc: 링크로 공유하는 움직이는 브리핑}
+  - {id: web-edu, name: 교육 웹슬라이드, fmt: web, use: 교육, corp: koscom-webslide, grade: n,
+     outline: [학습 목표, 핵심 개념, 확인 퀴즈], desc: 사내 교육·안내 페이지}

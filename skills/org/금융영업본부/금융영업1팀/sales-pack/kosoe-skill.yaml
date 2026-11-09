@@ -1,0 +1,46 @@
+id: sales-pack
+name: 영업 팩 (금융영업1팀)
+scope: org
+org: 금융영업본부/금융영업1팀
+owner: 김철수
+version: 1.4.0
+grade: i
+extends:
+  - skill:sales-common
+forms:
+  - id: proposal
+    name: 영업1팀 고객 제안서
+    fmt: ppt
+    use: 제안
+    outline: [회사 소개, 고객 과제, 서비스 제안, 레퍼런스, 일정·비용]
+    desc: 영업1팀 표준 제안서 — 회사 소개·서비스 소개·면책 문구 고정
+    blocks: [company-intro, service-intro, disclaimer]
+  - id: briefing
+    name: 고객 브리핑 웹슬라이드
+    fmt: web
+    use: 보고
+    outline: [핵심 메시지, 서비스 제안, 숫자로 보기, 다음 단계]
+    desc: 고객사에 링크로 보내는 움직이는 브리핑
+    blocks: [service-intro, disclaimer]
+  - id: visit-report
+    name: 영업1팀 고객 방문 보고
+    fmt: hwp
+    use: 보고
+    preset: visit-report
+    outline: [방문 개요, 주요 논의, 고객 요청 사항, 후속 조치]
+    desc: 전사 방문 보고 양식 + 영업1팀 결재라인·용어
+    blocks: [disclaimer]
+blocks:
+  - id: service-intro
+    heading: 서비스 제안
+    text: 코쇠 원장 클라우드는 원장·시세·주문 시스템을 하나의 클라우드로 운영하는 서비스임(가상)
+glossary:
+  terms:
+    PoC: 개념 검증(시범 구축)
+checks:
+  required: []
+  banned: [가격 인하 약속]
+rules:
+  - 제안서 첫 장은 고객 과제부터 쓰지 말고 회사 소개로 시작한다
+approval_line: [담당, 팀장, 본부장]
+illust_topics: [원장, 클라우드]

@@ -1,0 +1,32 @@
+id: sales-common
+name: 금융영업본부 공통 팩
+scope: org
+org: 금융영업본부
+owner: 이영희
+version: 1.0.0
+grade: i
+extends:
+  - corp:koscom-hwp-report
+  - corp:koscom-doc-pack#ppt-master
+  - corp:koscom-webslide
+  - corp:kosoe-illustrations
+blocks:
+  - id: company-intro
+    heading: 회사 소개
+    text: 코쇠금융IT는 자본시장 인프라를 함께 만들어 온 금융 IT 전문 기업임(가상)
+  - id: disclaimer
+    heading: 유의 사항
+    text: 본 자료의 수치와 일정은 협의 결과에 따라 달라질 수 있음
+glossary:
+  terms:
+    MTS: 모바일 트레이딩 시스템
+    원장: 고객 계좌·거래 기록을 관리하는 핵심 시스템
+  banned: [최고의, 완벽한, 무조건]
+checks:
+  required: [본 자료의 수치와 일정은 협의 결과에 따라 달라질 수 있음]
+  banned: [대외비, 내부 검토용]
+rules:
+  - 고객사명은 첫 표기에 정식 명칭을 쓴다
+  - 금액은 부가세 별도 여부를 함께 적는다
+approval_line: [담당, 팀장, 본부장]
+illust_topics: [제안, 고객, 보안, 시세]

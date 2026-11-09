@@ -1,0 +1,4 @@
+# 폴더별 승인권자(가상 조직). 실제 운영에서는 팀·부서 GitHub 팀으로 바꾸고 브랜치 보호를 켠다.
+/registry/                         @humanist96
+/skills/org/금융영업본부/          @humanist96
+/skills/org/경영기획본부/          @humanist96
