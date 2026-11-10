@@ -2,7 +2,7 @@ id: gian-body-u1-198f
 name: 기안문 팩
 scope: user
 owner: u1
-version: 1.6.0
+version: 1.6.1
 grade: i
 extends:
 - corp:koscom-hwp-report

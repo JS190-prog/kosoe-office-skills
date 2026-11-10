@@ -7,7 +7,7 @@ corp_skills:
     expose: [ppt-master, ppt-template-fill]
   koscom-hwp-report:
     repo: JS190-prog/koscom_hangul_skill
-    sha: bd67c14b76682a2a7c63cbc53e02bdacb149ec70
+    sha: 7c9432aebdc19a8fed7b4f060d3202f021d0567e
   koscom-webslide:
     repo: JS190-prog/koscom_webslide
     sha: ffd9cbf817d30c342a21e30f95b731b288c9339c
