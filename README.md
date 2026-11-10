@@ -73,12 +73,12 @@ sales-pack/
 
 | id | 저장소 | 맡는 일 |
 |---|---|---|
-| `koscom-hwp-report` | [koscom_hangul_skill](https://github.com/humanist96/koscom_hangul_skill) | 한글 `.hwp` 요약보고 렌더러, 보고 문법 |
-| `koscom-doc-pack` | [koscom-doc-pack](https://github.com/humanist96/koscom-doc-pack) (비공개) | 형식 라우터, `ppt-master`(Koscom 셰브론 덱) |
-| `koscom-webslide` | [koscom_webslide](https://github.com/humanist96/koscom_webslide) | 움직이는 단일 HTML 웹슬라이드 |
+| `koscom-hwp-report` | [koscom_hangul_skill](https://github.com/JS190-prog/koscom_hangul_skill) | 한글 `.hwp` 렌더러(요약보고 · 상세보고 · 기안문 본문 · 신청서), 보고 문법 |
+| `koscom-doc-pack` | [deck-design-pack](https://github.com/JS190-prog/deck-design-pack) | `ppt-master`와 덱 템플릿(Koscom 셰브론 외 6종). id는 앱이 찾는 이름 그대로 |
+| `koscom-webslide` | [koscom_webslide](https://github.com/JS190-prog/koscom_webslide) | 움직이는 단일 HTML 웹슬라이드(원고 원본 kosoe · motion · scrolline · three) |
 | `kosoe-illustrations` | [koscom-kosoe-illustrations](https://github.com/humanist96/koscom-kosoe-illustrations) | 코쇠 삽화 |
 
-전사 스킬이 만드는 문서 종류(결과보고 · 계획보고 · 제안서 덱 · 브리핑 웹슬라이드 등 14종)는 [`registry/corp.forms.yaml`](registry/corp.forms.yaml)에 있습니다.
+전사 스킬이 만드는 문서 종류(결과보고 · 투자계획서 · 기안문 · 신청서 · 제안서 덱 · 브리핑 웹슬라이드 등 29종)는 [`registry/corp.forms.yaml`](registry/corp.forms.yaml)에 있습니다.
 
 ### 부서 스킬 (가상 조직)
 
@@ -219,7 +219,7 @@ git show sales-pack@v1.4.0:"skills/org/금융영업본부/금융영업1팀/sales
 | `fmt` | ✓ | `hwp` · `ppt` · `web` |
 | `outline` | ✓ | 장 제목 목록(이 순서 그대로) |
 | `desc` · `use` | | 카드에 보이는 설명 · 용도 |
-| `preset` | | 한글일 때 전사 한글 스킬의 프리셋 id (예: `visit-report`) |
+| `preset` | | 엔진이 고를 서식. 한글 `detail`(상세보고·투자계획서) · `draft`(기안문 본문) · `form:<한글 스킬 안 사양 경로>`(신청서, AI가 `{{칸}}`을 채우고 결재라인·날짜·합계는 앱이 채움), PPT `deck:<덱 이름>`(koscom-chevron · gradient-mesh · midnight-panel · open-road · polarity · signal-green · warm-doc), 웹 `web:<원고 id>`(kosoe · motion · scrolline · three). 그 밖의 값(예: `visit-report`)은 한글 요약보고 · koscom-chevron · kosoe 원고 |
 | `blocks` | | 이 양식에 넣을 고정 문구 id 목록. 비우면 상속받은 것까지 모두 |
 | `grade` | | 이 양식만의 보안 등급 |
 
