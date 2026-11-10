@@ -46,7 +46,9 @@
 kosoe-office-skills/
 ├─ registry/
 │  ├─ corp.lock.yaml        전사 공용 스킬 4종의 고정 커밋 + 잠금 항목
-│  └─ corp.forms.yaml       전사 공통 양식 목록 (전사 스킬이 만드는 문서 종류)
+│  ├─ corp.forms.yaml       전사 공통 양식 목록 (전사 스킬이 만드는 문서 종류)
+│  └─ samples/<양식 id>/    새 문서 카드를 누르면 보이는 샘플 — 01.webp … + 가상 표본 설계도 sample.json
+│                           (앱 저장소의 tests/make_samples.py 가 만든다)
 ├─ skills/
 │  ├─ org/<본부>[/<팀>]/<스킬 id>/     본부 · 팀 스킬
 │  └─ user/<사용자 id>/<스킬 id>/      개인 스킬
@@ -62,7 +64,8 @@ kosoe-office-skills/
 sales-pack/
 ├─ kosoe-skill.yaml         상속 · 양식 · 고정 문구 · 용어 · 검수 규칙 · 결재라인  ← 필수
 ├─ SKILL.md                 언제 · 어떻게 쓰는 스킬인지 (사람과 AI가 읽는 설명)
-└─ evals/case-N/            검증 과제 — prompt.md(메모) · case.yaml(기대 구성 · 고정 문구 · 채점 결과)
+├─ evals/case-N/            검증 과제 — prompt.md(메모) · case.yaml(기대 구성 · 고정 문구 · 채점 결과)
+└─ samples/<양식 id>/       (선택) 카드 샘플 그림 01.webp … — 없으면 같은 형식·서식의 전사 샘플을 보여 준다
 ```
 
 ## 스킬 목록
