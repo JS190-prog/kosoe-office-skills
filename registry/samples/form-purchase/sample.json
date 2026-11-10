@@ -1,0 +1,96 @@
+{
+ "request": "개발팀 27인치 모니터 10대와 주변기기 구매 — 「물품 구매 요청서」 양식 샘플",
+ "model": "sonnet",
+ "made": "2026. 11. 10",
+ "blueprint": {
+  "title": "개발팀 모니터 및 주변기기 구매 요청",
+  "sections": [
+   {
+    "heading": "입력 값",
+    "items": [
+     {
+      "label": "요청자",
+      "text": "홍길동 대리",
+      "children": []
+     },
+     {
+      "label": "구매 목적",
+      "text": "개발팀 신규 투입 인력 및 노후 장비 교체용 개발 환경 개선 (듀얼 모니터 구성)",
+      "children": []
+     },
+     {
+      "label": "납품 희망일",
+      "text": "2026. 11. 27",
+      "children": []
+     },
+     {
+      "label": "품명 1",
+      "text": "27인치 QHD 모니터",
+      "children": []
+     },
+     {
+      "label": "규격 1",
+      "text": "27인치, 2560×1440, IPS, HDMI/DP 지원",
+      "children": []
+     },
+     {
+      "label": "수량 1",
+      "text": "10",
+      "children": []
+     },
+     {
+      "label": "금액 1",
+      "text": "2,890,000",
+      "children": []
+     },
+     {
+      "label": "품명 2",
+      "text": "유선 키보드·마우스 세트",
+      "children": []
+     },
+     {
+      "label": "규격 2",
+      "text": "USB 방식, 저소음 멤브레인 키보드",
+      "children": []
+     },
+     {
+      "label": "수량 2",
+      "text": "10",
+      "children": []
+     },
+     {
+      "label": "금액 2",
+      "text": "295,000",
+      "children": []
+     },
+     {
+      "label": "품명 3",
+      "text": "모니터 거치대",
+      "children": []
+     },
+     {
+      "label": "규격 3",
+      "text": "클램프형 싱글 암, 최대 32인치 지원",
+      "children": []
+     },
+     {
+      "label": "수량 3",
+      "text": "10",
+      "children": []
+     },
+     {
+      "label": "금액 3",
+      "text": "680,000",
+      "children": []
+     },
+     {
+      "label": "특이 사항",
+      "text": "A사 견적서(견적번호 Q-2026-1108) 기준이며, 설치 및 폐기 대상 구형 모니터 회수는 납품 시 함께 진행 요청",
+      "children": []
+     }
+    ],
+    "table": null
+   }
+  ]
+ }
+}
