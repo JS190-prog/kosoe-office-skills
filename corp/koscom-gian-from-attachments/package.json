@@ -1,0 +1,14 @@
+{
+  "name": "koscom-gian-from-attachments",
+  "version": "1.0.0",
+  "private": true,
+  "description": "첨부 파일 폴더를 읽어 코스콤 기안문(HWPX)을 만든다",
+  "scripts": {
+    "selftest": "node scripts/selftest.js"
+  },
+  "dependencies": {
+    "@xmldom/xmldom": "0.9.12",
+    "jszip": "3.10.1",
+    "kordoc": "4.24.48"
+  }
+}

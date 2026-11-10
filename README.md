@@ -50,7 +50,8 @@ kosoe-office-skills/
 │  └─ samples/<양식 id>/    새 문서 카드를 누르면 보이는 샘플 — 01.webp … + 가상 표본 설계도 sample.json
 │                           (앱 저장소의 tests/make_samples.py 가 만든다)
 ├─ corp/
-│  └─ koscom-hwp-pb-contract/        목적별 한글 스킬 — PB 추가업무 이용 계약서 (서식 채우기형)
+│  ├─ koscom-hwp-pb-contract/        목적별 한글 스킬 — PB 추가업무 이용 계약서 (서식 채우기형)
+│  └─ koscom-gian-from-attachments/  첨부 파일로 기안문(.hwpx) 만들기 — 에이전트 스킬 (잠금 미등록)
 ├─ skills/
 │  ├─ org/<본부>[/<팀>]/<스킬 id>/     본부 · 팀 스킬
 │  └─ user/<사용자 id>/<스킬 id>/      개인 스킬
@@ -83,6 +84,8 @@ sales-pack/
 | `koscom-webslide` | [koscom_webslide](https://github.com/JS190-prog/koscom_webslide) | 움직이는 단일 HTML 웹슬라이드(원고 원본 kosoe · motion · scrolline · three) |
 | `kosoe-illustrations` | [koscom-kosoe-illustrations](https://github.com/humanist96/koscom-kosoe-illustrations) | 코쇠 삽화 |
 | `koscom-hwp-pb-contract` | 이 저장소의 [`corp/koscom-hwp-pb-contract`](corp/koscom-hwp-pb-contract) | 한글 `.hwp` **PB 전산서비스 추가업무 이용 계약서** — 서식 채우기형(`kind: hwp-fill`) |
+
+[`corp/koscom-gian-from-attachments`](corp/koscom-gian-from-attachments)는 첨부 파일 폴더(근거 공문 · 보고서 · 투자계획서 · 견적서)를 읽어 코스콤 기안문 `.hwpx`를 만드는 **에이전트 스킬**입니다. 앱이 쓰는 엔진이나 양식 카드가 아니어서 잠금 파일에는 올리지 않았습니다. `~/.agents/skills/`에 복사하고 `npm ci`를 한 뒤 씁니다([설치](corp/koscom-gian-from-attachments/README.md)).
 
 전사 스킬이 만드는 문서 종류(결과보고 · 투자계획서 · 기안문 · 신청서 · 제안서 덱 · 브리핑 웹슬라이드 등 29종)는 [`registry/corp.forms.yaml`](registry/corp.forms.yaml)에 있습니다.
 
