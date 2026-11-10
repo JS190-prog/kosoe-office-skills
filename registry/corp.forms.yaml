@@ -1,5 +1,7 @@
 # 전사 공통 양식 — 전사 공용 스킬이 제공하는 문서 종류(코쇠오피스 갤러리의 '전사' 카드)
 # 한글: koscom-hwp-report 프리셋(구성·작성 규칙) · PPT: ppt-master koscom-chevron 덱 · 웹: koscom-webslide
+# preset 으로 엔진이 서식을 고른다 — 한글 detail(상세보고) · draft(기안문 본문) · form:<한글 스킬 안 사양 경로>(신청서),
+#   PPT deck:<덱 이름>, 웹 web:<원고 id>. 그 밖의 값은 한글 요약보고 · koscom-chevron · kosoe 원고. rules 는 AI 작성 규칙
 # 변경은 PR → 전사 관리자 승인
 forms:
   - {id: result-report, name: 결과보고, fmt: hwp, use: 보고, preset: result-report, corp: koscom-hwp-report,
@@ -30,3 +32,37 @@ forms:
      outline: [핵심 메시지, 숫자로 보기, 다음 단계], desc: 링크로 공유하는 움직이는 브리핑}
   - {id: web-edu, name: 교육 웹슬라이드, fmt: web, use: 교육, corp: koscom-webslide, grade: n,
      outline: [학습 목표, 핵심 개념, 확인 퀴즈], desc: 사내 교육·안내 페이지}
+  # ── 한글 스킬의 다른 서식: 상세보고(투자계획서 양식) · 기안문 본문 · 신청서 ──
+  - {id: invest-plan, name: 투자계획서 (상세보고), fmt: hwp, use: 보고, preset: detail, corp: koscom-hwp-report,
+     outline: [추진 배경, 투자 내용, 소요 예산, 추진 일정, 기대 효과], desc: "표지·목차·장(I, II…)으로 된 상세보고 형식"}
+  - {id: gian-body, name: 기안문 (본문), fmt: hwp, use: 결재, preset: draft, corp: koscom-hwp-report,
+     outline: [관련 근거, 추진 개요, 추진 내용, 소요 예산, 협조 요청 사항], desc: "전자결재 본문 칸에 붙이는 관련 근거·「아래」·번호 항목",
+     rules: "제목은 추진하는 일 그 자체로 쓴다(예: 본사 회의실 화상회의 장비 교체). 관련 근거 장에는 근거 문서를 한 항목에 하나씩 '부서연도-번호(시행일 : 문서명)' 형식으로 쓰고, 요청이나 첨부에 근거 문서가 없으면 그 장의 항목을 비운다."}
+  - {id: form-trip, name: 국내 출장 신청서, fmt: hwp, use: 신청, preset: "form:references/examples/form_sample.json", corp: koscom-hwp-report,
+     outline: [출장 개요, 경비 내역, 특이 사항], desc: "출장자·출장지·기간·목적, 교통비·숙박비와 합계(자동 계산)"}
+  - {id: form-leave, name: 휴가 신청서, fmt: hwp, use: 신청, preset: "form:references/forms/휴가_신청서.json", corp: koscom-hwp-report,
+     outline: [신청 내용, 업무 인계], desc: "휴가 종류·기간·사유·비상 연락처, 업무 대행자와 인계 내용"}
+  - {id: form-edu, name: 교육 참가 신청서, fmt: hwp, use: 신청, preset: "form:references/forms/교육_참가_신청서.json", corp: koscom-hwp-report,
+     outline: [교육 개요, 소요 비용, 기대 효과], desc: "교육명·기관·기간·장소, 교육비·교통비와 합계(자동 계산)"}
+  - {id: form-purchase, name: 물품 구매 요청서, fmt: hwp, use: 신청, preset: "form:references/forms/물품_구매_요청서.json", corp: koscom-hwp-report,
+     outline: [요청 개요, 구매 내역, 특이 사항], desc: "구매 목적·납품 희망일, 품명·규격·수량·금액 3행과 합계(자동 계산)"}
+  # ── ppt-master 의 다른 덱(koscom-chevron 과 같은 장 구성) ──
+  - {id: deck-warm, name: 안내·교육 덱 (Warm Doc), fmt: ppt, use: 교육, preset: "deck:warm-doc", corp: koscom-doc-pack,
+     outline: [배경, 핵심 내용, 진행 방법, 문의], desc: 따뜻한 문서 톤의 사내 안내·교육 발표}
+  - {id: deck-midnight, name: 기술 발표 덱 (Midnight Panel), fmt: ppt, use: 보고, preset: "deck:midnight-panel", corp: koscom-doc-pack,
+     outline: [개요, 구조, 성능·지표, 다음 단계], desc: 어두운 패널 톤의 시스템·기술 설명}
+  - {id: deck-mesh, name: 전략·비전 덱 (Gradient Mesh), fmt: ppt, use: 보고, preset: "deck:gradient-mesh", corp: koscom-doc-pack,
+     outline: [비전, 전략 방향, 핵심 과제, 기대 효과], desc: 그라데이션 메시 톤의 전략·비전 공유}
+  - {id: deck-road, name: 로드맵 덱 (Open Road), fmt: ppt, use: 보고, preset: "deck:open-road", corp: koscom-doc-pack,
+     outline: [현황, 목표, 단계별 계획, 필요 지원], desc: "넓은 여백에 한 점 강조, 추진 로드맵"}
+  - {id: deck-polarity, name: 비교·전후 덱 (Polarity), fmt: ppt, use: 보고, preset: "deck:polarity", corp: koscom-doc-pack,
+     outline: [현재, 문제, 개선 후, 결론], desc: 흑백 대비로 전후 비교·대안 검토}
+  - {id: deck-signal, name: 성과 보고 덱 (Signal Green), fmt: ppt, use: 보고, preset: "deck:signal-green", corp: koscom-doc-pack,
+     outline: [핵심 성과, 지표, 배운 점, 다음 계획], desc: "시그널 그린 강조의 실적·성과 보고(카드 4칸)"}
+  # ── koscom-webslide 의 다른 원고 원본 ──
+  - {id: web-motion, name: 모션 브리핑 웹슬라이드, fmt: web, use: 보고, preset: "web:motion", corp: koscom-webslide, grade: n,
+     outline: [핵심 메시지, 현황, 변화, 다음 단계], desc: 키네틱 타이틀 표지로 여는 움직이는 결과 보고}
+  - {id: web-scroll, name: 스크롤 타임라인 웹슬라이드, fmt: web, use: 보고, preset: "web:scrolline", corp: koscom-webslide, grade: n,
+     outline: [배경, 진단, 계획, 기대 효과], desc: 휠로 이어지는 타임라인의 로드맵·연혁}
+  - {id: web-3d, name: 3D 구조 브리핑 웹슬라이드, fmt: web, use: 보고, preset: "web:three", corp: koscom-webslide, grade: n,
+     outline: [구조, 연결, 이중화, 실행], desc: three.js 3D 무대의 인프라·구조 설명}
