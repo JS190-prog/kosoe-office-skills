@@ -6,11 +6,11 @@ corp_skills:
     sha: c94a6de2873f2dcb1e8ee76fe1ba80d55d28d0f5
     expose: [router, ppt-master, ppt-template-fill]
   koscom-hwp-report:
-    repo: humanist96/koscom_hangul_skill
-    sha: 19bd93b30619d28c0946ebfcd2e50b032d752a29
+    repo: JS190-prog/koscom_hangul_skill
+    sha: b4744e837cb733652a7c906f549bcb67a5d3c16e
   koscom-webslide:
-    repo: humanist96/koscom_webslide
-    sha: 00557cabbfb7ed0b7cfa31f2bb6cc791cd6892f6
+    repo: JS190-prog/koscom_webslide
+    sha: ffd9cbf817d30c342a21e30f95b731b288c9339c
     path: skills/koscom-webslide
   kosoe-illustrations:
     repo: humanist96/koscom-kosoe-illustrations
