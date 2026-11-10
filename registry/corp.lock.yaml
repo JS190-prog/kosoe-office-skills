@@ -23,4 +23,10 @@ corp_skills:
     path: corp/koscom-hwp-pb-contract
     sha: 84ce63d734795082b3b6949a073b236ec2db97b0
     kind: hwp-fill
+  # 목적별 엑셀 스킬(서식 채우기형, kind: xlsx-fill) — 엑셀 서식(.xlsx)의 칸에 값을 넣는다. 엑셀 서식 채우기를 아는 앱 버전에서 양식 카드로 보인다.
+  koscom-xlsx-pb-quote:
+    repo: humanist96/kosoe-office-skills
+    path: corp/koscom-xlsx-pb-quote
+    sha: 07c3061a42b35ccb94675214710a2d5d5d5514aa
+    kind: xlsx-fill
 locked_keys: [brand.ci_colors, brand.fonts, brand.logo, doc.grade_label, hwp.base_template]
