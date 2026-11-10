@@ -1,10 +1,10 @@
 # 전사 공용 스킬 잠금 파일 — 코쇠오피스가 문서를 만들 때 쓰는 전사 스킬의 정확한 버전
 # SHA를 바꾸는 PR = 전사 스킬 갱신 (전사 관리자 승인 후 다음 문서부터 반영)
 corp_skills:
-  koscom-doc-pack:
-    repo: humanist96/koscom-doc-pack
-    sha: c94a6de2873f2dcb1e8ee76fe1ba80d55d28d0f5
-    expose: [router, ppt-master, ppt-template-fill]
+  koscom-doc-pack:            # 앱 코드가 쓰는 id. 실체는 deck-design-pack의 ppt-master·koscom-chevron 덱
+    repo: JS190-prog/deck-design-pack
+    sha: 5cdbb68b66ceddb420ce6d29df3ad176aa21453b
+    expose: [ppt-master, ppt-template-fill]
   koscom-hwp-report:
     repo: JS190-prog/koscom_hangul_skill
     sha: 8dd12e3dd49153038917717729e3244de49ecb7f
