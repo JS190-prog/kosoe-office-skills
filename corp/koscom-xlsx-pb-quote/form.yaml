@@ -1,0 +1,44 @@
+# 서식 채우기형 엑셀 스킬의 양식 정의 — 코쇠오피스 앱과 사람이 함께 읽는다.
+# 서식(.xlsx)에 든 칸 토큰({{이름}})과 화면에 보일 이름 · 묶음 · 기본값을 잇는다. 제목 · 표 머리 · 인사말은 서식에 들어 있어 여기에 적지 않는다.
+# 칸 구성은 같은 업무의 계약서 스킬(koscom-hwp-pb-contract)과 맞췄다 — 견적서의 고객사명 · 추가업무명 · 이용료 표를 계약서에 그대로 쓸 수 있다.
+id: pb-addon-quote
+name: PB 전산서비스 추가업무 이용 견적서
+kind: xlsx-fill
+purpose: 기본계약(PowerBase 전산서비스 이용계약)을 맺은 고객사에 추가 업무의 이용료를 제시하는 한 쪽짜리 견적서
+owner: 금융영업본부
+grade: c                                  # 대외비 — 고객사 · 금액이 들어간다
+template: templates/pb_addon_quote.xlsx
+renderer: scripts/render.py               # python scripts/render.py values.json 견적서.xlsx
+title: PowerBase 추가업무({추가업무명}) 이용 견적서
+
+sections:
+  - heading: 견적 기본 사항
+    fields:
+      - {key: 고객사명, label: 고객사명, required: true, example: E증권, hint: '받는 곳. 뒤에 "귀중"이 붙어 인쇄된다'}
+      - {key: 추가업무명, label: 추가 업무명, required: true, example: 고객확인 모니터링 고도화, hint: 견적명과 표 제목의 괄호 안에 들어간다}
+      - {key: 견적일자, label: 견적 일자, required: true, example: 2026년 01월 15일, pattern: '^\d{4}년 \d{2}월 \d{2}일$', default: '{today:YYYY년 MM월 DD일}',
+         hint: YYYY년 MM월 DD일. 따로 말이 없으면 비워 둔다(오늘 날짜가 들어간다)}
+      - {key: 유효기간, label: 유효 기간, default: 견적 후 1개월}
+      - {key: 대표이사, label: 대표이사, example: 김 철 수, hint: 코스콤 대표이사. 원본 서식처럼 글자 사이를 띄운다}
+  - heading: 이용료
+    table:
+      key: 이용료
+      unit: 천원/년, 부가세 별도
+      cols: [대분류, 중분류, 소분류, 회사기본, 영업점당, 이용량, 비고]
+      required: [소분류, 회사기본]
+      blank: {영업점당: '-', 이용량: '-'}      # 값이 없을 때 넣는 글(숫자 칸이라 '-'로 인쇄된다)
+      sum: {col: 회사기본, into: 합계}         # 합계는 서식의 {{sum:이용료.회사기본}}이 계산한다. 앱 검수용으로 남겨 둔다
+  - heading: 기타
+    fields:
+      - {key: RM담당, label: RM 담당, example: 금융영업부 홍길동 차장 (02-000-0000), hint: 부서 · 이름 · 직급 (전화). 비우면 그 줄이 빠진다}
+      - {key: 계약담당, label: 계약 담당, example: 금융영업부 이영희 차장 (02-000-0001), hint: 부서 · 이름 · 직급 (전화). 비우면 그 줄이 빠진다}
+
+# 그림 자리 — 서식에는 그림이 들어 있지 않다. 만드는 사람이 자기 PC의 그림 파일을 줄 때만 넣는다(render.py --image 직인=경로)
+images:
+  - {key: 직인, label: 직인(사용인감), hint: 날인 권한이 있는 사람이 줄 때만. 이 스킬 폴더나 저장소에 넣지 않는다}
+
+# 서식에 들어 있어 바꾸지 않는 것(바꾸려면 서식을 고쳐 새 버전으로 올린다)
+fixed:
+  - 제목(見積書) · 인사말 · 표 머리(업무구분 / 이용료 / 비고) · 단위(천원/년, 부가세 별도)
+  - 회사 로고 · 주소(서울 영등포구 여의나루로 4길 21) · 직함(대표이사 사장)
+  - 쪽 구성(A4 세로 한 쪽, 바깥 테두리)
