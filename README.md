@@ -46,7 +46,9 @@
 kosoe-office-skills/
 ├─ registry/
 │  ├─ corp.lock.yaml        전사 공용 스킬의 고정 커밋 + 잠금 항목
-│  └─ corp.forms.yaml       전사 공통 양식 목록 (전사 스킬이 만드는 문서 종류)
+│  ├─ corp.forms.yaml       전사 공통 양식 목록 (전사 스킬이 만드는 문서 종류)
+│  └─ samples/<양식 id>/    새 문서 카드를 누르면 보이는 샘플 — 01.webp … + 가상 표본 설계도 sample.json
+│                           (앱 저장소의 tests/make_samples.py 가 만든다)
 ├─ corp/
 │  ├─ koscom-hwp-pb-contract/        목적별 한글 스킬 — PB 추가업무 이용 계약서 (서식 채우기형)
 │  └─ koscom-gian-from-attachments/  첨부 파일로 기안문(.hwpx) 만들기 — 에이전트 스킬 (잠금 미등록)
@@ -65,7 +67,8 @@ kosoe-office-skills/
 sales-pack/
 ├─ kosoe-skill.yaml         상속 · 양식 · 고정 문구 · 용어 · 검수 규칙 · 결재라인  ← 필수
 ├─ SKILL.md                 언제 · 어떻게 쓰는 스킬인지 (사람과 AI가 읽는 설명)
-└─ evals/case-N/            검증 과제 — case.yaml(기대 구성 · 고정 문구 · 채점 결과). 과제 메모는 올리지 않음(아래 「자주 묻는 질문」)
+├─ evals/case-N/            검증 과제 — case.yaml(기대 구성 · 고정 문구 · 채점 결과). 과제 메모는 올리지 않음(아래 「자주 묻는 질문」)
+└─ samples/<양식 id>/       (선택) 카드 샘플 그림 01.webp … — 없으면 같은 형식·서식의 전사 샘플을 보여 준다
 ```
 
 ## 스킬 목록
@@ -76,15 +79,15 @@ sales-pack/
 
 | id | 저장소 | 맡는 일 |
 |---|---|---|
-| `koscom-hwp-report` | [koscom_hangul_skill](https://github.com/humanist96/koscom_hangul_skill) | 한글 `.hwp` 요약보고 렌더러, 보고 문법 |
-| `koscom-doc-pack` | [koscom-doc-pack](https://github.com/humanist96/koscom-doc-pack) (비공개) | 형식 라우터, `ppt-master`(Koscom 셰브론 덱) |
-| `koscom-webslide` | [koscom_webslide](https://github.com/humanist96/koscom_webslide) | 움직이는 단일 HTML 웹슬라이드 |
+| `koscom-hwp-report` | [koscom_hangul_skill](https://github.com/JS190-prog/koscom_hangul_skill) | 한글 `.hwp` 렌더러(요약보고 · 상세보고 · 기안문 본문 · 신청서), 보고 문법 |
+| `koscom-doc-pack` | [deck-design-pack](https://github.com/JS190-prog/deck-design-pack) | `ppt-master`와 덱 템플릿(Koscom 셰브론 외 6종). id는 앱이 찾는 이름 그대로 |
+| `koscom-webslide` | [koscom_webslide](https://github.com/JS190-prog/koscom_webslide) | 움직이는 단일 HTML 웹슬라이드(원고 원본 kosoe · motion · scrolline · three) |
 | `kosoe-illustrations` | [koscom-kosoe-illustrations](https://github.com/humanist96/koscom-kosoe-illustrations) | 코쇠 삽화 |
 | `koscom-hwp-pb-contract` | 이 저장소의 [`corp/koscom-hwp-pb-contract`](corp/koscom-hwp-pb-contract) | 한글 `.hwp` **PB 전산서비스 추가업무 이용 계약서** — 서식 채우기형(`kind: hwp-fill`) |
 
 [`corp/koscom-gian-from-attachments`](corp/koscom-gian-from-attachments)는 첨부 파일 폴더(근거 공문 · 보고서 · 투자계획서 · 견적서)를 읽어 코스콤 기안문 `.hwpx`를 만드는 **에이전트 스킬**입니다. 앱이 쓰는 엔진이나 양식 카드가 아니어서 잠금 파일에는 올리지 않았습니다. `~/.agents/skills/`에 복사하고 `npm ci`를 한 뒤 씁니다([설치](corp/koscom-gian-from-attachments/README.md)).
 
-전사 스킬이 만드는 문서 종류(결과보고 · 계획보고 · 제안서 덱 · 브리핑 웹슬라이드 등 14종)는 [`registry/corp.forms.yaml`](registry/corp.forms.yaml)에 있습니다.
+전사 스킬이 만드는 문서 종류(결과보고 · 투자계획서 · 기안문 · 신청서 · 제안서 덱 · 브리핑 웹슬라이드 등 29종)는 [`registry/corp.forms.yaml`](registry/corp.forms.yaml)에 있습니다.
 
 #### 한글 스킬은 목적마다 따로
 
@@ -269,7 +272,7 @@ git show sales-pack@v1.4.0:"skills/org/금융영업본부/금융영업1팀/sales
 | `fmt` | ✓ | `hwp` · `ppt` · `web` |
 | `outline` | ✓ | 장 제목 목록(이 순서 그대로) |
 | `desc` · `use` | | 카드에 보이는 설명 · 용도 |
-| `preset` | | 한글일 때 전사 한글 스킬의 프리셋 id (예: `visit-report`) |
+| `preset` | | 엔진이 고를 서식. 한글 `detail`(상세보고·투자계획서) · `draft`(기안문 본문) · `form:<한글 스킬 안 사양 경로>`(신청서, AI가 `{{칸}}`을 채우고 결재라인·날짜·합계는 앱이 채움), PPT `deck:<덱 이름>`(koscom-chevron · gradient-mesh · midnight-panel · open-road · polarity · signal-green · warm-doc), 웹 `web:<원고 id>`(kosoe · motion · scrolline · three). 그 밖의 값(예: `visit-report`)은 한글 요약보고 · koscom-chevron · kosoe 원고 |
 | `blocks` | | 이 양식에 넣을 고정 문구 id 목록. 비우면 상속받은 것까지 모두 |
 | `grade` | | 이 양식만의 보안 등급 |
 | `style` | | 이 양식의 문체. 없으면 전사 보고 문법(명사형 종결 · `2026. 10. 28` · 90자) |

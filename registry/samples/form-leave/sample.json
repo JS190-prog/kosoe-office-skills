@@ -1,0 +1,51 @@
+{
+ "request": "연차 휴가(12. 22 ~ 12. 26, 5일, 가족 여행) — 「휴가 신청서」 양식 샘플",
+ "model": "sonnet",
+ "made": "2026. 11. 10",
+ "blueprint": {
+  "title": "연차 휴가 신청(가족 여행)",
+  "sections": [
+   {
+    "heading": "입력 값",
+    "items": [
+     {
+      "label": "신청자",
+      "text": "홍길동 대리",
+      "children": []
+     },
+     {
+      "label": "휴가 종류",
+      "text": "연차 휴가",
+      "children": []
+     },
+     {
+      "label": "기간",
+      "text": "2026. 12. 22 ~ 12. 26 (5일)",
+      "children": []
+     },
+     {
+      "label": "사유",
+      "text": "가족 여행",
+      "children": []
+     },
+     {
+      "label": "비상 연락처",
+      "text": "내선 2345 · 사내 메신저",
+      "children": []
+     },
+     {
+      "label": "대행자",
+      "text": "김철수",
+      "children": []
+     },
+     {
+      "label": "인계 내용",
+      "text": "A증권 운영 정기 점검 일정 및 미결 문의 3건 사전 정리, 인계 문서는 12. 19까지 공유",
+      "children": []
+     }
+    ],
+    "table": null
+   }
+  ]
+ }
+}
