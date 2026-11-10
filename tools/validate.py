@@ -28,6 +28,26 @@ def load_all():
     return out
 
 
+ENDINGS = ('noun', 'plain', 'polite', 'any')
+DATE_FORMATS = ('Y. M. D', 'Y.MM.DD', 'Y-MM-DD', 'Y년 M월 D일', 'any')
+
+
+def check_style(style):
+    """문체(style): 대표 문서에서 잰 종결 형태 · 날짜 형식 · 항목 길이. 없으면 전사 보고 문법을 따른다."""
+    if style is None:
+        return []
+    if not isinstance(style, dict):
+        return ['style은 ending · date · max_len 을 가진 묶음이어야 함']
+    errs = []
+    if style.get('ending') is not None and style['ending'] not in ENDINGS:
+        errs.append('style.ending은 ' + ' | '.join(ENDINGS))
+    if style.get('date') is not None and style['date'] not in DATE_FORMATS:
+        errs.append('style.date는 ' + ' | '.join(DATE_FORMATS))
+    if style.get('max_len') is not None and not (isinstance(style['max_len'], int) and style['max_len'] >= 0):
+        errs.append('style.max_len은 0(제한 없음) 이상의 정수')
+    return errs
+
+
 def check(s, ids, lock, path):
     errs = []
     for k in ('id', 'name', 'scope', 'version'):
@@ -57,6 +77,11 @@ def check(s, ids, lock, path):
             errs.append(f"양식 {f.get('id')}: fmt는 hwp|ppt|web")
         if not f.get('outline'):
             errs.append(f"양식 {f.get('id')}: outline 없음")
+        errs += [f"양식 {f.get('id')}: {e}" for e in check_style(f.get('style'))]
+    errs += check_style(s.get('style'))
+    v = s.get('verification')
+    if v is not None and not (isinstance(v, dict) and v.get('status') in ('passed', 'forced')):
+        errs.append('verification.status는 passed | forced')
     text = json.dumps(s, ensure_ascii=False)
     for rx, name in PII:
         if rx.search(text):
