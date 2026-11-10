@@ -16,4 +16,11 @@ corp_skills:
     repo: humanist96/koscom-kosoe-illustrations
     sha: 7026e62deea48ce0f757e4c16bb1b24e7031c9a2
     path: koscom-kosoe-illustrations
+  # 목적별 한글 스킬(서식 채우기형, kind: hwp-fill) — 스킬의 form.yaml이 전사 양식 카드가 된다. 목적마다 스킬을 따로 올린다.
+  # 이 저장소의 corp/ 폴더에 있다. sha는 그 폴더가 들어 있는 커밋 — 서식·칸을 고치면 새 커밋으로 올린다.
+  koscom-hwp-pb-contract:
+    repo: humanist96/kosoe-office-skills
+    path: corp/koscom-hwp-pb-contract
+    sha: 84ce63d734795082b3b6949a073b236ec2db97b0
+    kind: hwp-fill
 locked_keys: [brand.ci_colors, brand.fonts, brand.logo, doc.grade_label, hwp.base_template]

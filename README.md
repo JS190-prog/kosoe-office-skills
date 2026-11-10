@@ -45,8 +45,10 @@
 ```
 kosoe-office-skills/
 ├─ registry/
-│  ├─ corp.lock.yaml        전사 공용 스킬 4종의 고정 커밋 + 잠금 항목
+│  ├─ corp.lock.yaml        전사 공용 스킬의 고정 커밋 + 잠금 항목
 │  └─ corp.forms.yaml       전사 공통 양식 목록 (전사 스킬이 만드는 문서 종류)
+├─ corp/
+│  └─ koscom-hwp-pb-contract/        목적별 한글 스킬 — PB 추가업무 이용 계약서 (서식 채우기형)
 ├─ skills/
 │  ├─ org/<본부>[/<팀>]/<스킬 id>/     본부 · 팀 스킬
 │  └─ user/<사용자 id>/<스킬 id>/      개인 스킬
@@ -77,8 +79,34 @@ sales-pack/
 | `koscom-doc-pack` | [koscom-doc-pack](https://github.com/humanist96/koscom-doc-pack) (비공개) | 형식 라우터, `ppt-master`(Koscom 셰브론 덱) |
 | `koscom-webslide` | [koscom_webslide](https://github.com/humanist96/koscom_webslide) | 움직이는 단일 HTML 웹슬라이드 |
 | `kosoe-illustrations` | [koscom-kosoe-illustrations](https://github.com/humanist96/koscom-kosoe-illustrations) | 코쇠 삽화 |
+| `koscom-hwp-pb-contract` | 이 저장소의 [`corp/koscom-hwp-pb-contract`](corp/koscom-hwp-pb-contract) | 한글 `.hwp` **PB 전산서비스 추가업무 이용 계약서** — 서식 채우기형(`kind: hwp-fill`) |
 
 전사 스킬이 만드는 문서 종류(결과보고 · 계획보고 · 제안서 덱 · 브리핑 웹슬라이드 등 14종)는 [`registry/corp.forms.yaml`](registry/corp.forms.yaml)에 있습니다.
+
+#### 한글 스킬은 목적마다 따로
+
+한글 문서는 목적에 따라 모양이 전혀 다릅니다. 보고서는 `□ ㅇ -` 개조식이고, 계약서 · 공문은 조항과 서명란이 정해져 있습니다. 보고서 스킬 하나로 계약서를 만들면 계약서가 보고서 모양으로 나옵니다. 그래서 모양이 정해진 문서는 **서식 채우기형 스킬**로 따로 만듭니다.
+
+| | 보고서 스킬 (`koscom-hwp-report`) | 서식 채우기형 스킬 (`kind: hwp-fill`) |
+|---|---|---|
+| 방식 | 문단 블록을 조립 | 실제 문서에서 바뀌는 글만 `{{칸}}`으로 비운 서식에 값을 넣음 |
+| AI가 쓰는 것 | 장 · 항목 · 표 | 칸의 값만. 조항 문장은 서식에 있어 쓰지 않음 |
+| 양식 카드 | `registry/corp.forms.yaml` | 스킬 폴더의 `form.yaml`이 곧 전사 양식 카드 |
+| 검수 | 보고 문법 · 팩 규칙 | 필수 칸 · 칸 형식 · 표(합계 자동) |
+
+새 목적의 한글 스킬(다른 계약서, 공문 등)을 추가하는 순서:
+
+1. `corp/<스킬 id>/` 폴더를 만듭니다. [`corp/koscom-hwp-pb-contract`](corp/koscom-hwp-pb-contract)를 본뜨면 됩니다 — `form.yaml`(칸 정의) · `templates/*.hwp`(서식) · `scripts/*.jar`(채우기 렌더러) · `SKILL.md`.
+2. 서식은 실제 문서에서 고객사명 · 금액 · 사람 이름을 칸으로 바꿔 만듭니다([안내](corp/koscom-hwp-pb-contract/references/template_guide.md)). **원본 문서는 올리지 않습니다.**
+3. 그 폴더가 들어간 커밋을 `registry/corp.lock.yaml`에 `kind: hwp-fill`로 고정합니다. 앱 코드는 고치지 않습니다.
+
+```yaml
+koscom-hwp-pb-contract:
+  repo: humanist96/kosoe-office-skills
+  path: corp/koscom-hwp-pb-contract
+  sha: <그 폴더가 들어 있는 커밋>
+  kind: hwp-fill
+```
 
 ### 부서 스킬 (가상 조직)
 
