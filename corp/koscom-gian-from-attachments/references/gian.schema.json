@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "기안문 원천 데이터(gian/1.0)",
+  "type": "object",
+  "required": [
+    "schema",
+    "header",
+    "basis",
+    "sections",
+    "attachments",
+    "footer"
+  ],
+  "properties": {
+    "schema": {
+      "const": "gian/1.0"
+    },
+    "id": {
+      "type": "string"
+    },
+    "header": {
+      "type": "object",
+      "required": [
+        "recipient",
+        "title"
+      ],
+      "properties": {
+        "recipient": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        }
+      }
+    },
+    "basis": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "mark": {
+            "type": "string"
+          },
+          "docNo": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "attachRef": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "no",
+          "title"
+        ],
+        "properties": {
+          "no": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "bullets": {
+            "type": "array"
+          },
+          "table": {
+            "type": "object"
+          },
+          "schedule": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "attachments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "no",
+          "type",
+          "title",
+          "copies"
+        ],
+        "properties": {
+          "no": {
+            "type": "integer"
+          },
+          "type": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "copies": {
+            "type": "integer"
+          },
+          "file": {
+            "type": "string"
+          },
+          "files": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "원천이 여러 개인 첨부(예: 공문 각 1부)"
+          },
+          "subject": {
+            "type": "string",
+            "description": "견적서 건명(업체가 쓰는 사업명)"
+          },
+          "terms": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "견적서 특기사항 줄(없으면 업체 서식의 기본 문구)"
+          }
+        },
+        "anyOf": [
+          {
+            "required": [
+              "file"
+            ]
+          },
+          {
+            "required": [
+              "files"
+            ]
+          }
+        ]
+      }
+    },
+    "approval": {
+      "type": "object"
+    },
+    "footer": {
+      "type": "object"
+    },
+    "budget": {
+      "type": "object"
+    },
+    "request": {
+      "type": "string",
+      "description": "2. 요청 문장 전체(생략하면 purpose로 만든다)"
+    },
+    "closing": {
+      "type": "string",
+      "description": "'- 아 래 -' 줄을 직접 지정"
+    },
+    "sender": {
+      "type": "string",
+      "description": "외부 발신 공문의 발신명의(결재란 위)"
+    }
+  }
+}
